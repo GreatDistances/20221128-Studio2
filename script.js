@@ -11,9 +11,9 @@ window.addEventListener("load", function () {
             astro.innerHTML = `Astronauts: ${json.length} total`
 
             // SORT ARRAY OF OBJECTS - NOT FUNCTIONAL**
-            //json.sort(function(a, b) {
-            //    return (a.hoursInSpace < b.hourseInSpace ? 1 : -1);
-            //});
+            json.sort(function(a, b) {
+                return (a.hoursInSpace < b.hoursInSpace ? 1 : -1);
+            });
 
             // DISPLAY ALL ASTRONAUT INFORMATION
             for (key in json) {
@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
                         <h3>${json[key].firstName} ${json[key].lastName}</h3>
                         <ul>
                             <li>Hours In Space: ${json[key].hoursInSpace}</li>
-                            <li>Active: ${json[key].active}</li>
+                            <li class="${json[key].active ? "green" : ""}">Active: ${json[key].active}</li>
                             <li>Skills: ${json[key].skills.join(', ')}</li>
                         </ul>
                         <img class="avatar" src=${json[key].picture}>
